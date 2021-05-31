@@ -1,8 +1,8 @@
-## Überschrift 2
+## Header 2
 
-### Kapitel 2.2
+### Header 3
 
-Bla bla Tabelle folgt
+Bla bla table is on it's way
 
 |header1|header2|header3|
 |--:--  |:-----|------:|
@@ -10,7 +10,7 @@ Bla bla Tabelle folgt
 |y|22|dklfjaslfjasldfjasfköajslasfö|
 
 
-Bla bla Aufzählung
+Bla bla list:
 
 * asdf
 * qwer

@@ -1,8 +1,8 @@
-## Überschrift 2
+## Table format Test File 2
 
-### Kapitel 2.2
+### Additional Text after last Pipe Symbol
 
-Bla bla Tabelle folgt
+leads to an error
 
 |header1|header2|header3|
 |--:--  |:-----|------:|
@@ -10,7 +10,7 @@ Bla bla Tabelle folgt
 |y|22|dklfjaslfjasldfjasfköajslasfö| 
 
 
-Bla bla Aufzählung
+Bla bla List:
 
 * asdf
 * qwer
