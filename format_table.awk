@@ -24,7 +24,20 @@ function trim(str){
  return gensub(/^[ \t]+|[ \t]+$/, "", "g",str);
 }
 function parseAlign(str){
-     # TODO - error ist not only chars [-:] 
+     if (""!=gensub(/[: -]/,"","g",str)){
+       addError("Alignment must only contain Dash (-) and Colon (:) Chars");     
+       return "x";
+     }
+     if (0==index(str,"-")) {
+       addError("Aligment must contain a dash (-)");
+       return "x";
+     } 
+     if (1!=length(gensub(/[^:]/,"","g",str))){
+       addError("Alignment must contain exactly one colon-char (:)");
+     }
+     
+     # hope only good stuff left 
+
      pos = index(str,":");
      if (pos==1) return "l";
      if (pos==length(str)) return "r";
@@ -48,7 +61,7 @@ function start_table(){
    table_row=0;
  }
  else {
-   ## normale nächste Zeile
+   ## next table line
    debug("next Line")
  }
  table_row++;
@@ -141,14 +154,14 @@ table_row=0;
     if (headersize!=NF) {
       addError("Number of Fields do not match Headerline");
     };
-    for (i=1;i<NF;i++) {
+    for (i=2;i<NF;i++) {
       alignment[i]=parseAlign(trim($i));
     }
   } else { # Content Rows
     if (headersize!=NF) {
       addError("Number of Fields do not match Headerline")
     }
-    for (i=1;i<NF;i++) {
+    for (i=2;i<NF;i++) {
       content[content_row,i]=trim($i);
       maxlen[i]=max(length(trim($i)),maxlen[i]);
     }
