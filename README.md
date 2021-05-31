@@ -11,7 +11,7 @@ gawk - Skript to format tables in markdown documents
 
 * Format tables within the Markdown-File into a readable table.
 * leave the rest of the document unchanged
-* leave tables with formatting errors unchange and print the error reason to STDERR
+* leave tables with formatting errors unchanged and print the error reason to STDERR
 
 ## Examples
 
@@ -36,4 +36,16 @@ to:
 |    c2    | l2      | Very long text to see the effect | 
 |    c3    | l3      |                               r3 |
 ```
+
+### Errors:
+
+If the formatter finds an error in a source markdown table, this table will be written into the destination without any changes.
+Errormessages will be written to STDERR. 
+
+```
+$> cat test_table_def.md  | gawk -f ../format_table.awk > result.md
+
+Line: 9 : Line does not End with Pipe-Symbol
+```
+
 
